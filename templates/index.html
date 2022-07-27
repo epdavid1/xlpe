@@ -1,0 +1,63 @@
+<html lang="en">
+<style>
+	.main{
+      	margin: auto;
+      	max-width: 350px;
+      	padding: 20px;
+    }
+	input{
+      	width: 33%;
+        margin: 5px 0;
+    }
+    select{
+    	margin: 5px 0;
+        width: 33%;
+    }
+    body{
+  		font-family: Calibri;
+	}
+    h1 {
+  		font-size: 40px;
+		}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <div class="main">
+    <h1 style="text-align:center">20 kV XLPE Power Cable Age</h1>
+        <form action="/" method="POST">
+            Partial Discharge
+            <br>
+            <input type="text" name="pd">
+            <span>&emsp;&emsp;&emsp;Min-Max Normalized [0,1]</span>
+            <br>
+            Neutral Corrosion
+            <br>
+            <input type="text" name="corrosion">
+            <span>&emsp;&emsp;&emsp;Min-Max Normalized [0,1]</span>
+            <br>
+            Peak Loading
+            <br>
+            <input type="text" name="load">
+            <span>&emsp;&emsp;&emsp;Amps</span>
+            <br>
+            <label for="defect">Visual Defects:</label>
+            <br>
+              <select name="defect" id="defect">
+                <option value="minor">Minor</option>
+                <option value="significant">Significant</option>
+                <option value="moderate">Moderate</option>
+                <option value="serious">Serious</option>
+              </select>
+            <br>
+            <br>
+            <button type="submit" value="predict">Predict</button>
+        </form>
+        {%if prediction%}
+            {{prediction}}
+        {%endif%}
+    </div>
+</body>
+</html>
