@@ -11,14 +11,14 @@ app = Flask(__name__)
 def predict():
     if request.method == "POST" and "pd" in request.form and "corrosion" in request.form and "load" in request.form:
         try:
-            if 0 < float(request.form.get("pd")) < 1:
+            if 0 <= float(request.form.get("pd")) <= 1:
                 pd = float(request.form.get("pd"))
             else:
                 return render_template("index.html", prediction="Normalized values must be between 0 and 1")
         except:
             return render_template("index.html", prediction="Normalized values must be between 0 and 1")
         try:
-            if 0 < float(request.form.get("corrosion")) < 1:
+            if 0 <= float(request.form.get("corrosion")) <= 1:
                 corrosion = float(request.form.get("corrosion"))
             else:
                 return render_template("index.html", prediction="Normalized values must be between 0 and 1")
